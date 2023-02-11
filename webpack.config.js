@@ -1,6 +1,7 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const EsLintPlugin = require("eslint-webpack-plugin")
 
 module.exports = {
   mode: "development",
@@ -10,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   plugins: [
+    new EsLintPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
@@ -46,6 +48,12 @@ module.exports = {
               ],
             },
           },
+          {
+            loader: "eslint-loader",
+            options: {
+              fix: true,
+            },
+          },
         ],
       },
       {
@@ -56,7 +64,8 @@ module.exports = {
           /*
           1. postcss-loader를 통해 css를 변환한다.
           2. postcss-preset-env를 통해 css를 변환한다.
-          3. postcss-preset-env는 autoprefixer를 포함하고 있어서, css를 변환할 때, 브라우저 호환성을 고려하여 prefix를 자동으로 붙여준다.
+          3. postcss-preset-env는 autoprefixer를 포함하고 있어서,
+          css를 변환할 때, 브라우저 호환성을 고려하여 prefix를 자동으로 붙여준다.
           */
           {
             loader: "postcss-loader",
@@ -81,7 +90,6 @@ module.exports = {
               },
             },
           },
-          ,
           "sass-loader",
         ],
       },
