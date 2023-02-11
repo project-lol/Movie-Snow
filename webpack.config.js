@@ -19,9 +19,10 @@ module.exports = {
   devServer: {
     static: {
       directory: path.resolve(__dirname, "dist"),
-      port: 9000,
-      open: true,
     },
+    port: 9000,
+    open: true,
+    historyApiFallback: true, // SPA에서 404 에러가 발생할 때 index.html로 리다이렉트
   },
   module: {
     rules: [
