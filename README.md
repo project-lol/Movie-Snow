@@ -5,6 +5,11 @@
 <br>
 
 ## Learning Point : 프로젝트를 통해 학습한 것들
+전반적인 내용은 [Course Register](https://github.com/project-lol/Course-Registration-Project)프로젝트와 비슷했다.
+추가적인 내용이 있었다면, 
+
+- jsx 파일 번들링 
+- postcss 설정 
 
 <br>
 
