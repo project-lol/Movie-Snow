@@ -37,3 +37,29 @@
 - `babel-preset-env`는 최신 문법을 지원하지 않는 브라우저를 위해 사용한다.
 - `babel-preset-react`는 jsx를 사용하기 위해 사용한다.
 - `babel-loader`는 웹팩과 바벨을 연결해주는 역할을 한다.
+
+<br>
+
+### postcss-loader를 통해 css파일을 번들링하기
+
+- postcss는 linting, formatting, autoprefixing 등의 기능을 제공한다.
+- postcss-loader를 사용하는 이유는 아직 호환되지 않는 최신 css를 브라우저가 이해할 수 있는 형태로 변환해주기 위해서도 있다.
+- 이것을 사용하기 위해서 아래와 같이 작성할 수 있다.
+
+```js
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [["postcss-preset-env", {}]],
+              },
+            },
+          },
+        ],
+      },
+```
